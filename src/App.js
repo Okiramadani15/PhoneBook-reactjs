@@ -1,5 +1,9 @@
-import TodoBox from './components/TodoBox';
+import AllContainer from "./components/AllContainer";
 
 export default function App() {
-  return <TodoBox/>
+  return (
+    <div>
+     <AllContainer/>
+    </div>
+  );
 }

@@ -1,13 +1,89 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+/* searchBar */
+.search {
+  background-color: white;
+  display: flex;
+  height: 60px;
+  width: auto;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.input-search{
+  width: 80%;
+  height: 50%;
+  /* padding-left: 10px; */
+  border: 5px black;
+  border-radius: 2px;
+  color: black;
+  box-shadow: 0px 0px 3px black;
+  margin-right: 7px;
+  margin-left: 7px;
+
 }
+
+.button-sort {
+  width: 40px;
+  height: 35px;
+  border: 5px black;
+  border-radius: 2px;
+  color: black;
+  background-color: #bd8c08;
+  box-shadow: 0px 0px 3px black;
+  
+}
+
+.button-add{
+  width: 40px;
+  height: 35px;
+  border: 5px black;
+  border-radius: 2px;
+  color: black;
+  background-color: #bd8c08;
+  box-shadow: 0px 0px 3px black;
+  
+}
+
+/* searchBar end */
+.card{
+  display: flex;
+  flex-direction:row;
+}
+
+/* phone */
+
+.phone-card{
+  display: flex;
+  flex-direction:row;
+  padding: 10px;
+  text-align: left;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  background-color: #e3e2de;
+  box-shadow: 0px 0px 3px black;
+  width: 250px;
+  height:105px;
+}
+.title-name{
+  margin-bottom: 200px;
+  margin-left: 80px;
+}
+
+.avatar{
+  width: 100px;
+  height: 100px;
+  margin-right: 80%;
+}
+
+.title{
+  margin-bottom: 30px;
+  margin-left: 20px;
+}
+
+.pencil{
+  margin-right: 10px;
+}
+
