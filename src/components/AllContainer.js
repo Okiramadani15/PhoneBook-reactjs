@@ -3,7 +3,7 @@ import SearchBar from "./SearchBar"
 
 export default function AllContainer() {
     return(
-        <div>
+        <div className="all">
             <SearchBar/>
             <PhoneContainer/>
         </div>
