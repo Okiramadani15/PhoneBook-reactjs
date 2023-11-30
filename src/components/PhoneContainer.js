@@ -1,9 +1,21 @@
 import PhoneCard from "./PhoneCard";
-export default function PhoneContainer({ list =[1,2,3,4,5,6,7,8,7,8,9,10,11,12,13,14,15,16,17,18,19,20]} ) {
-    const listNode = list.map((item, index) =>(<PhoneCard key={item} todo={item}/>))
-    return(
-        <div className="card">
-            {listNode}
-        </div>
-    )
+import { useEffect, useState } from "react";
+import axios from "axios";
+
+export default function PhoneContainer({}) {
+    const [users, setUsers] = useState([])
+    const usersNode = users.map((item)=>(<PhoneCard user={item}/>))
+
+  useEffect(() => {
+     axios.get('http://localhost:3001/users').then((response)=>{
+      if (response.data)
+      setUsers(response.data.phonebooks)
+    })
+  })
+  return (
+    <div className="card">
+        {usersNode}
+    </div>
+  )
+
 }
