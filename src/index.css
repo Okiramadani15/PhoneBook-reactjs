@@ -1,6 +1,6 @@
-.all{
-}
+
 /* searchBar */
+@media only screen and (max-width: 10000px){
 .search {
   background-color: white;
   display: flex;
@@ -9,6 +9,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+}
 }
 
 .input-search{
@@ -53,9 +54,11 @@
 }
 /* phone */
 
+@media only screen and (max-width: 10000px) {
 .phone-card{
   display: flex;
   flex-direction:row;
+  justify-content: center;
   padding: 10px;
   text-align: left;
   margin-top: 10px;
@@ -66,6 +69,7 @@
   box-shadow: 0px 0px 3px black;
   width: 250px;
   height:105px;
+}
 }
 .title-name{
   margin-bottom: 200px;
@@ -78,11 +82,24 @@
   margin-right: 80%;
 }
 
-.title{
+.change{
   margin-bottom: 30px;
   margin-left: 20px;
 }
 
+.edit{
+  margin-bottom: 30px;
+  margin-left: 20px;
+}
+
+.delete{
+  margin-left: 20px;
+  margin-bottom: 50px;
+}
+
+.save{
+  margin-right: 10px;
+}
 .pencil{
   margin-right: 10px;
 }
