@@ -1,6 +1,8 @@
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+
 export default function PhoneCard({ user, remove, update }) {
   // Alert (pop up delete )
   const submitAlert = () => {
@@ -59,7 +61,9 @@ export default function PhoneCard({ user, remove, update }) {
     return (
       <form className="phone-card">
         <div>
+          <Link to="/uploadAvatar">
           <img src="Defaultavatar.png" alt="" className="avatar" />
+          </Link>
         </div>
         <div className="edit">
           <p>{user.name}</p>

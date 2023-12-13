@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import AllContainer from "./components/AllContainer";
-import {Routes, Route, Outlet, BrowserRouter, Li} from "react-router-dom"
+import Avatar from "./components/Avatar";
+import {Routes, Route, Outlet, BrowserRouter} from "react-router-dom"
 import Add from "./components/Add";
 export default function App() {
   const [users, setUsers] = useState([]);
@@ -83,8 +84,10 @@ export default function App() {
     <div>
       <BrowserRouter>
         <Routes>
-            <Route path="/" element={<AllContainer user={users} update={UpdateData} remove={Delete} avatar={UploadAvatar}/>}/>
+          <Route path="/" element={<Layout/>}/>
+            <Route index element={<AllContainer user={users} update={UpdateData} remove={Delete} />}/>
             <Route path="add" element={<Add addUser={add} user={users} setUsers={setUsers}/> }/>
+            <Route path="uploadAvatar" element={<Avatar avatar={UploadAvatar}/>} />
         </Routes>
         </BrowserRouter>
     </div>
