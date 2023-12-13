@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useLocation } from "react-router-dom";
-export default function Avatar() {
+import { useLocation, useNavigate } from "react-router-dom";
+export default function Avatar({avatar}) {
 
 
-  const [gambar, setGambar] = useState({});
+  const [gambar, setGambar] = useState();
   const {state} = useLocation()
-
+  const navigate = useNavigate()
+  console.log(state)
   const imageChange = (e) => {
     if (e.target.files || e.target.files.length > 0) setGambar(e.target.files[0]);
   };
@@ -14,7 +15,8 @@ export default function Avatar() {
   const uploadGambar = () => {
     const formData = new FormData();
     formData.append("avatar", gambar);
-
+    avatar(state.id, formData)
+    navigate('/')
 
   };
   return (
@@ -30,15 +32,15 @@ export default function Avatar() {
             </form>
 
             {(gambar ? (
-                <div className="preview">
-                    {/* <img
+                <div className="avatar-preview">
+                     <img
                         src={URL.createObjectURL(gambar)}
-                        alt="Thumb"
-                    /> */}
+                        alt=""
+                    />
                 </div>
             ) :
                 (<div className="preview">
-                    <img src={"http://localhost:3000/images/" +
+                    <img src={"http://localhost:3000/images/" + 
                         (state.avatar ? state.avatar : "user-tie-solid.svg")} alt="avatar" />
                 </div>
                 )

@@ -61,8 +61,9 @@ export default function PhoneCard({ user, remove, update }) {
     return (
       <form className="phone-card">
         <div>
-          <Link to="/uploadAvatar">
-          <img src="Defaultavatar.png" alt="" className="avatar" />
+          <Link to="/uploadAvatar" state={user}>
+          <img src={"http://localhost:3001/images/" + 
+                        (user.avatar ? user.avatar : "icon.png")} alt="" className="avatar" />
           </Link>
         </div>
         <div className="edit">

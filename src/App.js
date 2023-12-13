@@ -40,7 +40,12 @@ export default function App() {
 
   const UploadAvatar = (id, avatar) => {
     axios
-      .put(`http://localhost:3001/users/${id}`, { avatar })
+      .put(`http://localhost:3001/users/${id}/avatar`,avatar, 
+      {headers: {
+        "Content-Type" : "multipart/form-data"
+      }}  
+      
+      )
       .then((response) => {
         setUsers((currentData) =>
           currentData.map((item) => {
