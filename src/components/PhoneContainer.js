@@ -1,65 +1,13 @@
 import PhoneCard from "./PhoneCard";
-import { useEffect, useState } from "react";
-import axios from "axios";
 import Avatar from "./Avatar";
-export default function PhoneContainer() {
-  const [users, setUsers] = useState([]);
-
-  useEffect(() => {
-    axios.get("http://localhost:3001/users").then((response) => {
-      if (response.data) setUsers(response.data.phonebooks);
-    });
-  }, []);
-
-  const Delete = (id) => {
-    axios.delete(`http://localhost:3001/users/${id}`).then((response) => {
-      setUsers(users.filter((item) => item.id !== id));
-    });
-  };
-
-  const UpdateData = (id, name, phone) => {
-    axios
-      .put(`http://localhost:3001/users/${id}`, { name, phone })
-      .then((response) => {
-        setUsers((currentData) =>
-          currentData.map((item) => {
-            if (item.id === id) {
-              item.name = response.data.name;
-              item.phone = response.data.phone;
-            }
-            return item;
-          })
-        );
-      })
-      .catch(() => {
-        alert("update gagal");
-      });
-  };
-
-  const UploadAvatar = (id, avatar) => {
-    axios
-      .put(`http://localhost:3001/users/${id}`, { avatar })
-      .then((response) => {
-        setUsers((currentData) =>
-          currentData.map((item) => {
-            if (item.id === id) {
-              item.avatar = response.data.avatar;
-            }
-            return item;
-          })
-        );
-      })
-      .catch(() => {
-        alert("ubah avatar gagal");
-      });
-  };
-
-  const usersNode = users.map((item) => <PhoneCard user={item} remove={() => Delete(item.id)} update={UpdateData} />);
+export default function PhoneContainer({ user, update, remove, avatar}) {
+ 
+  const usersNode = user.map((item) => <PhoneCard user={item} remove={() => remove(item.id)} update={update} />);
 
   return (
     <div className="card">
       {usersNode}
-      <Avatar avatarUpdate={UploadAvatar} />
+      <Avatar avatarUpdate={avatar} />
     </div>
   );
 }

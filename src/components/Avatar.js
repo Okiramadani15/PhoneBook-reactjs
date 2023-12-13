@@ -12,6 +12,7 @@ export default function Avatar({avatarUpdate}) {
     const formData = new FormData();
     formData.append("avatar", gambar);
 
+    
   };
   return (
     <div className="update-avatar">

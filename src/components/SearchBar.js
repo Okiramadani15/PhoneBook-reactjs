@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 export default function SearchBar() {
 
@@ -7,9 +8,11 @@ export default function SearchBar() {
         <i class="fa-solid fa-arrow-down-z-a"></i>
       </button>
       <input className="input-search" type="text" placeholder="Search..."/>
+      <Link to="/add">
       <button type="add" className="button-add">
         <i class="fa-solid fa-user-plus"></i>
       </button>
+      </Link>
     </form>
   );
 }
