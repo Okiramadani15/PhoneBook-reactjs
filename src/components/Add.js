@@ -10,7 +10,7 @@ const [phone , setPhone ] = useState('')
  }
 
   return (
-    <>
+    <div>
       <input className="input-add-name" type="text" placeholder=""  value={name} onChange={(e)=> setName(e.target.value)}/>
       <input className="input-add-phone" type="text" placeholder="" value={phone} onChange={(e)=> setPhone(e.target.value)}/>
       <Link to="/">
@@ -20,6 +20,6 @@ const [phone , setPhone ] = useState('')
       <Link to="/">
       <button className="add-cancel">cancel</button>
       </Link>
-    </>
+      </div>
   );
 }
