@@ -6,12 +6,24 @@ import {Routes, Route, Outlet, BrowserRouter} from "react-router-dom"
 import Add from "./components/Add";
 export default function App() {
   const [users, setUsers] = useState([]);
+  const [keyword, setKeyword] = useState("")
+
+  
 
   useEffect(() => {
     axios.get("http://localhost:3001/users").then((response) => {
       if (response.data) setUsers(response.data.phonebooks);
     });
   }, []);
+
+  useEffect(()=>{
+  if (keyword !== ""){
+    axios.get(`http://localhost:3001/users/?keyword=${keyword}`).then((response) => {
+     if (response.data) setUsers(response.data.phonebooks);
+  })
+}
+},[keyword])
+ 
 
   const Delete = (id) => {
     axios.delete(`http://localhost:3001/users/${id}`).then((response) => {
@@ -90,7 +102,7 @@ export default function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout/>}/>
-            <Route index element={<AllContainer user={users} update={UpdateData} remove={Delete} />}/>
+            <Route index element={<AllContainer user={users} update={UpdateData} remove={Delete} setKeyword={setKeyword} />}/>
             <Route path="add" element={<Add addUser={add} user={users} setUsers={setUsers}/> }/>
             <Route path="uploadAvatar" element={<Avatar avatar={UploadAvatar}/>} />
         </Routes>
